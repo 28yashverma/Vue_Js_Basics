@@ -39,6 +39,9 @@
   <template v-for="name in names" :key="name">
     <h2 v-if="name === 'Bruce'">{{ name }}</h2>
   </template>
+  <!--Calling a method-->
+  <h2>Add method - {{ add(2, 4, 6) }}</h2>
+  <h2>Multiply method - {{ multiply(4) }}</h2>
 </template>
 
 <script>
@@ -68,8 +71,17 @@ export default {
       fullNames: [
         {first: 'Bruce', last: 'Wayne'},
         {first: 'Clarke', last: 'Kent'}
-      ]
+      ],
+      baseMultiplier: 10
     };
+  },
+  methods: {
+    add(a, b, c) {
+      return a+b+c;
+    },
+    multiply(num) {
+      return this.baseMultiplier * num;
+    }
   },
   components: {
     
