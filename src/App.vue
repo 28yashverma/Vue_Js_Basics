@@ -6,10 +6,14 @@
       {{ formValues.name }}
     </pre>
   </div>
-  <form @submit="submitform">
+  <form @submit.prevent="submitform">
     <div>
       <label for="name">Name: </label>
-      <input type="text" id="name" v-model="formValues.name">
+      <input type="text" id="name" v-model.trim="formValues.name">
+    </div>
+    <div>
+      <label for="age">Age</label>
+      <input type="number" id="age" v-model.number.lazy="formValues.age">
     </div>
     <div>
       <button >Submit</button>
@@ -26,13 +30,14 @@ export default {
   data() {
     return {
       formValues: {
-        name: ''
+        name: '',
+        age: null
       }
     };
   },
   methods: {
-    submitform(event) {
-      event.preventDefault()
+    submitform() {
+      
       console.log('Form values', this.formValues)
     }
   },
