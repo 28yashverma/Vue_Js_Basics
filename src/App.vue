@@ -1,14 +1,22 @@
 <template>
-  
+  <MyGreet name="Yeshendra" heroName="Batman"/>
+  <MyGreet :name="name" :hero-Name="channel"/>
 </template>
 
 <script>
 
+import MyGreet from './components/Greet.vue';
 
 export default {
   name: 'App',
   components: {
-    
+    MyGreet,
+  },
+  data() {
+    return {
+      name: 'Yeshendra',
+      channel: 'My code'
+    }
   }
 }
 </script>
