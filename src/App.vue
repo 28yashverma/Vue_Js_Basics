@@ -1,16 +1,24 @@
 <template>
-  <MyGreet name="Yeshendra" heroName="Batman"/>
-  <MyGreet :name="name" :hero-Name="channel"/>
+  <!-- <MyGreet name="Yeshendra" heroName="Batman"/>
+  <MyGreet :name="name" :hero-Name="channel"/> -->
+  <ArticleComponent title="Article title"/>
+  <ArticleComponent/>
+  
+  <div>
+    <h2 v-bind="$attrs">{{ title }}</h2>
+  </div>
 </template>
 
 <script>
 
-import MyGreet from './components/Greet.vue';
+//import MyGreet from './components/Greet.vue';
+import ArticleComponent from './components/Article.vue';
 
 export default {
   name: 'App',
   components: {
-    MyGreet,
+    //MyGreet,
+    ArticleComponent
   },
   data() {
     return {
