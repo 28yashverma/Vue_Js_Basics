@@ -41,7 +41,17 @@
   </template>
   <!--Calling a method-->
   <h2>Add method - {{ add(2, 4, 6) }}</h2>
-  <h2>Multiply method - {{ multiply(4) }}</h2>
+  <h2>Multiply method - {{ multiply(4, $event) }}</h2>
+
+  <!--Event handling -->
+  <div>
+    <button v-on:click="name='Batman'">Change name</button>
+  </div>
+  <h2>{{ count }}</h2>
+  <div>
+    <button @mouseover="increment()">Increment</button>
+    <button @mouseover="decrement()">Decrement</button>
+  </div>
 </template>
 
 <script>
@@ -72,15 +82,23 @@ export default {
         {first: 'Bruce', last: 'Wayne'},
         {first: 'Clarke', last: 'Kent'}
       ],
-      baseMultiplier: 10
+      baseMultiplier: 10,
+      count: 0
     };
   },
   methods: {
     add(a, b, c) {
       return a+b+c;
     },
-    multiply(num) {
+    multiply(num, event) {
+      console.log(event)
       return this.baseMultiplier * num;
+    },
+    increment() {
+      return this.count++;
+    },
+    decrement() {
+      return this.count--;
     }
   },
   components: {
