@@ -35,6 +35,10 @@
 
   <h2 v-for="(n, index) in names" :key="n">{{index}} {{ n }}</h2>
   <h2 v-for="name in fullNames" :key="name.first">{{ name.first }} {{ name.last }}</h2>
+
+  <template v-for="name in names" :key="name">
+    <h2 v-if="name === 'Bruce'">{{ name }}</h2>
+  </template>
 </template>
 
 <script>
